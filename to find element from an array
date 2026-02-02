@@ -1,0 +1,30 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        //System.out.println("Try programiz.pro");
+        Scanner scan=new Scanner(System.in);
+       System.out.println("Enter the size of thr array");
+       int n=scan.nextInt();
+       int ar[]=new int[n];
+       int i,key;
+       System.out.println("Enter the value to be searched");
+       key=scan.nextInt();
+       for(i=0;i<n;i++)
+       {
+        System.out.println("Enter value"+i);
+        ar[i]=scan.nextInt();
+        
+       }
+       for(i=0;i<n;i++)
+       {
+           if(ar[i]==key)
+           break;
+           
+       }
+       if(i==n)
+       System.out.println("Element not found"+key);
+       else
+       System.out.println("Element" +key+"fount at index" +i);
+       
+    }
+}
