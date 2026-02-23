@@ -1,0 +1,81 @@
+class SNode {
+    int data;
+    SNode next;
+
+    SNode(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+ class StackUsingLinkedList {
+	
+	SNode top = null;
+
+    // PUSH
+     void push(int value) {
+        SNode newNode = new SNode(value);
+        newNode.next = top;
+        top = newNode;
+
+        System.out.println(value + " pushed to stack");
+    }
+
+    // POP
+     void pop() {
+        if (top == null) {
+            System.out.println("Stack Underflow");
+            return;
+        }
+
+        System.out.println(top.data + " popped from stack");
+        top = top.next;
+    }
+
+    // PEEK
+    void peek() {
+        if (top == null) {
+            System.out.println("Stack is empty");
+        } else {
+            System.out.println("Top element is: " + top.data);
+        }
+    }
+
+    // DISPLAY
+    void display() {
+        SNode temp = top;
+        if(top==null)
+	    System.out.println("No stack");
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+
+        System.out.println("null");
+    }
+
+}
+class Main {
+    public static void main(String args[])
+	{
+		System.out.println("Stack using Linked list");
+		
+		 StackUsingLinkedList stack = new StackUsingLinkedList();
+
+	        stack.push(10);
+	        stack.push(20);
+	        stack.push(30);
+
+	        stack.display();
+
+	        stack.peek();
+
+	        stack.pop();
+
+	        stack.display();
+		
+	
+	
+	}
+
+}
+    
