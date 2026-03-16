@@ -1,0 +1,108 @@
+class LNode {
+    int data;
+    LNode next;
+
+    LNode(int data) //parametrised  constructor
+    {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+// Queue class
+class QueueLinkedList {
+
+    LNode front = null;
+    LNode rear = null;
+
+    // ENQUEUE (Insert at rear)
+    void enqueue(int value) {
+        LNode newNode = new LNode(value);
+
+        if (rear == null) {
+            front = rear = newNode;
+        } else {
+            rear.next = newNode;
+            rear = newNode;
+        }
+
+        System.out.println(value + " inserted");
+    }
+
+    // DEQUEUE (Remove from front)
+    void dequeue() {
+        if (front == null) {
+            System.out.println("Queue Underflow");
+            return;
+        }
+
+        System.out.println(front.data + " removed");
+        front = front.next;
+
+        // If queue becomes empty
+        if (front == null) {
+            rear = null;
+        }
+    }
+
+    // PEEK
+    void peek() {
+        if (front == null) {
+            System.out.println("Queue is empty");
+        } else {
+            System.out.println("Front element: " + front.data);
+        }
+    }
+
+    // DISPLAY
+    void display() {
+        if (front == null) {
+            System.out.println("Queue is empty");
+            return;
+        }
+
+        LNode temp = front;
+        System.out.print("Queue: ");
+
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+
+        System.out.println();
+    }
+}
+public class Queue_Link {
+	public static void main(String sd[])
+	{
+		System.out.println("Queue using Linked list");
+		QueueLinkedList q = new QueueLinkedList();
+
+        // Insert elements
+        q.enqueue(100);
+        q.enqueue(200);
+        q.enqueue(300);
+
+        q.display();
+
+        // Remove element
+        q.dequeue();
+        q.display();
+
+        // Insert more
+        q.enqueue(400);
+        q.enqueue(500);
+        q.display();
+
+        // Peek front
+        q.peek();
+     // Remove all
+        q.dequeue();
+        q.dequeue();
+        q.dequeue();
+        q.dequeue(); // Underflow
+
+        q.display();
+	}
+
+}
